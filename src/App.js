@@ -2,6 +2,7 @@ import './App.css';
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navigation from './container/Navigation';
+import HomePage from './container/HomePage';
 import PeopleList from './container/PeopleList';
 import Person from './container/Person';
 
@@ -18,11 +19,11 @@ const App = () => {
   return (
     <Router>
       <Navigation/>
-
-      <Routes>
-      <Route exact path="/people" element={<PeopleList people={people}/>} />
-        <Route path="/people/:id" element={<Person people={people} setPeople={setPeople}/>} />
-      </Routes>
+        <Routes>
+          <Route exact path="/" element={<HomePage />} />
+          <Route exact path="/people" element={<PeopleList people={people}/>} />
+          <Route path="/people/:id" element={<Person people={people} setPeople={setPeople}/>} />
+        </Routes>
     </Router>
   );
 }
