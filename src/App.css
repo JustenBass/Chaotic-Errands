@@ -44,15 +44,17 @@
 }
 
 .welcome-div{
-  background-color: rgba(229, 169, 29, 0.831);
+  background-color: rgba(235, 171, 45, 0.831);
   width: 25%;
-  height: 16%;
+  height: 17%;
+  border: 3px solid #fff;
+  padding: 20px;
 }
 
 
 .errand-div{
   background-color: white;
-  margin-left: 110%;
+  margin-left: 140%;
   width: 200%;
-  margin-top: 1px;
+
 }

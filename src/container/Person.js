@@ -20,26 +20,34 @@ const Person = ({people, setPeople}) => {
         <PersonErrands
         key={person.id}
         person={person}
+        currentPerson={currentPerson}
+        setCurrentPerson={setCurrentPerson}
         />
     )
 
     return(
+
         <div className="welcome-div">
             <h1>Welcome back {name}!</h1>
             <h3>Location: {location}</h3>
             <h3>Member Since: {account_created}</h3>
             <br />
 
-            <button onClick={() => setErrandFormFlag((errand) => !errand)}>Add New Errands!</button>
-            {errandFormFlag ?
-            <AddErrandForm
-            currentPerson = {currentPerson}
-            people={people}
-            setPeople={setPeople}
-            setErrandFormFlag={setErrandFormFlag}
-            /> : null}
 
+                <button onClick={() => setErrandFormFlag((errand) => !errand)}>Add New Errands!</button>
+                {errandFormFlag ?
+                <AddErrandForm
+                currentPerson = {currentPerson}
+                people={people}
+                setPeople={setPeople}
+                setErrandFormFlag={setErrandFormFlag}
+                /> : null}
+
+
+            <div className="float-child">
             {personDetails}
+            </div>
+
         </div>
     )
 }
