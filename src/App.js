@@ -18,7 +18,7 @@ const App = () => {
       <Navigation/>
 
       <Routes>
-        
+        <Route path="/people/:id" element={<Person people={people} setPeople={setPeople}/>} />
       </Routes>
     </Router>
   );
