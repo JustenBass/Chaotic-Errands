@@ -22,7 +22,7 @@ const App = () => {
         <Navigation/>
         <Routes>
           <Route exact path="/" element={<HomePage />} />
-          <Route exact path="/people" element={<PeopleList people={people}/>} />
+          <Route exact path="/people" element={<PeopleList people={people} setPeople={setPeople}/>} />
           <Route path="/people/:id" element={<Person people={people} setPeople={setPeople}/>} />
         </Routes>
       </Router>

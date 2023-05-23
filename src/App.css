@@ -38,14 +38,21 @@
 }
 
 .app-div{
-  background-image: url("https://static.vecteezy.com/system/resources/previews/016/157/411/original/ethnic-pattern-ikat-seamless-folk-embroidery-traditional-pattern-african-art-it-is-a-pattern-created-by-combining-geometric-shapes-design-for-print-using-in-the-fashion-industry-vector.jpg");
+  background-image: url("https://cdn5.vectorstock.com/i/1000x1000/89/49/seamless-pattern-with-hand-drawn-city-print-vector-18888949.jpg");
   height: 1600px;
   width: 100%;
 }
 
+.welcome-div{
+  background-color: rgba(206, 26, 26, 0.831);
+  width: 25%;
+  height: 8%;
+}
+
+
 .errand-div{
   background-color: white;
-
-  margin: auto;
-  width: 50%;
+  margin-left: 110%;
+  width: 200%;
+  margin-top: 1px;
 }
