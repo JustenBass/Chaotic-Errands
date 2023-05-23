@@ -9,7 +9,7 @@ import Person from './container/Person';
 
 const App = () => {
   const [people, setPeople] = useState([])
-  
+
   useEffect(() => {
     fetch('http://localhost:9292/people')
     .then((r) => r.json())
@@ -17,14 +17,16 @@ const App = () => {
   }, [])
 
   return (
-    <Router>
-      <Navigation/>
+    <div className='app-div'>
+      <Router>
+        <Navigation/>
         <Routes>
           <Route exact path="/" element={<HomePage />} />
           <Route exact path="/people" element={<PeopleList people={people}/>} />
           <Route path="/people/:id" element={<Person people={people} setPeople={setPeople}/>} />
         </Routes>
-    </Router>
+      </Router>
+    </div>
   );
 }
 
