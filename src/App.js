@@ -1,7 +1,7 @@
-import logo from './logo.svg';
 import './App.css';
+import Person from './container/Person';
 
-function App() {
+const App = () => {
   return (
   <h2>Test</h2>
   );
