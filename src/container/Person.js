@@ -1,11 +1,12 @@
 import React, { useState, useEffect} from "react";
 import { useParams } from "react-router-dom";
 import PersonErrands from "../components/PersonErrands";
-
+import AddErrandForm from "../components/AddErrandForm";
 
 const Person = ({people, setPeople}) => {
     const [currentPerson, setCurrentPerson] = useState({errands: []})
     const {name, location, account_created} = currentPerson
+    const [errandFormFlag, setErrandFormFlag] = useState(false)
     const params = useParams()
 
     useEffect(() => {
@@ -27,12 +28,18 @@ const Person = ({people, setPeople}) => {
             <h1>Welcome back {name}!</h1>
             <h3>Location: {location}</h3>
             <h3>Member Since: {account_created}</h3>
+            <br />
 
-            <span>
-                <div>
+            <button onClick={() => setErrandFormFlag((errand) => !errand)}>Add New Errands!</button>
+            {errandFormFlag ?
+            <AddErrandForm
+            currentPerson = {currentPerson}
+            people={people}
+            setPeople={setPeople}
+            setErrandFormFlag={setErrandFormFlag}
+            /> : null}
+
             {personDetails}
-            </div>
-            </span>
         </div>
     )
 }
