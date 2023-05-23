@@ -1,5 +1,7 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navigation from './container/Navigation';
 import Person from './container/Person';
 
 const App = () => {
@@ -12,7 +14,13 @@ const App = () => {
   }, [])
 
   return (
-    <Person />
+    <Router>
+      <Navigation/>
+
+      <Routes>
+        
+      </Routes>
+    </Router>
   );
 }
 
