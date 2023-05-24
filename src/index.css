@@ -5,6 +5,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url("https://img.freepik.com/free-vector/luxury-dark-seamless-pattern_1048-10342.jpg");
+  height: auto;
+  width: 100%;
 }
 
 code {

@@ -16,6 +16,8 @@ const Person = ({people, setPeople}) => {
         }
     }, [people])
 
+
+
     const personDetails = currentPerson.errands.map(person =>
         <PersonErrands
         key={person.id}
@@ -26,29 +28,29 @@ const Person = ({people, setPeople}) => {
     )
 
     return(
-
+        <>
         <div className="welcome-div">
             <h1>Welcome back {name}!</h1>
             <h3>Location: {location}</h3>
             <h3>Member Since: {account_created}</h3>
             <br />
 
-
-                <button onClick={() => setErrandFormFlag((errand) => !errand)}>Add New Errands!</button>
+            <button onClick={() => setErrandFormFlag((errand) => !errand)}>Add New Errands!</button>
                 {errandFormFlag ?
                 <AddErrandForm
                 currentPerson = {currentPerson}
+                setCurrentPerson = {setCurrentPerson}
                 people={people}
                 setPeople={setPeople}
                 setErrandFormFlag={setErrandFormFlag}
                 /> : null}
-
-
-            <div className="float-child">
-            {personDetails}
-            </div>
-
         </div>
+
+        <div className="person-detail-div">
+            <center><h2>TO DO LIST</h2></center>
+            {personDetails}
+        </div>
+        </>
     )
 }
 

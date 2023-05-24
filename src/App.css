@@ -37,11 +37,11 @@
   }
 }
 
-.app-div{
-  /* background-image: url("https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX20548378.jpg"); */
-  height: 1600px;
+/* .app-div{
+  background-image: url("https://img.freepik.com/free-vector/luxury-dark-seamless-pattern_1048-10342.jpg");
+  height: auto;
   width: 100%;
-}
+} */
 
 .link-div{
   background-color: rgba(235, 171, 45, 0.831);
@@ -56,21 +56,44 @@
 }
 
 .welcome-div{
+  margin-left: 5%;
+  margin-top: 4%;
   background-color: rgba(235, 171, 45, 0.831);
   width: 25%;
   height: 17%;
   border: 3px solid #fff;
   padding: 20px;
+
 }
 
 
-.errand-div{
+.person-detail-div{
   background-color: white;
-  margin-left: 140%;
+  margin-left: 40%;
+  margin-top: -17.5%;
+  position: absolute;
   width: 200%;
-
+  text-align: center;
+  border: rgb(240, 195, 71) solid 4px;
+  padding: 1rem;
+  width: 40rem;
+  /* height: rem;
+  display: inline-grid;
+  margin: 2rem 1rem;
+  margin-left: 1.5%; */
 }
 
 .errand-title{
   width: 50%;
 }
+
+/* .errand-card{
+  text-align: center;
+  border: black solid 1px;
+  padding: 1rem;
+  width: 18rem;
+  height: 31rem;
+  display: inline-grid;
+  margin: 2rem 1rem;
+  margin-left: 1.5%;
+} */
