@@ -38,9 +38,21 @@
 }
 
 .app-div{
-  background-image: url("https://static.vecteezy.com/system/resources/previews/001/922/113/original/seamless-pattern-of-floral-concept-with-vintage-style-free-vector.jpg");
+  background-image: url("https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX20548378.jpg");
   height: 1600px;
   width: 100%;
+}
+
+.link-div{
+  background-color: rgba(235, 171, 45, 0.831);
+  width: 25%;
+  height: 17%;
+  border: 3px solid #fff;
+  padding: 20px;
+}
+
+.link{
+  color: black;
 }
 
 .welcome-div{
@@ -57,4 +69,8 @@
   margin-left: 140%;
   width: 200%;
 
+}
+
+.errand-title{
+  width: 50%;
 }
