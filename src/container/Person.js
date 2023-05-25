@@ -4,24 +4,56 @@ import PersonErrands from "../components/PersonErrands";
 import AddErrandForm from "../components/AddErrandForm";
 
 const Person = ({people, setPeople}) => {
-    const [currentPerson, setCurrentPerson] = useState({errands: []})
-    const {name, location, account_created} = currentPerson
+    const [currentPerson, setCurrentPerson] = useState({
+        errands: [],
+    })
+    const {name, age, location, account_created} = currentPerson
     const [errandFormFlag, setErrandFormFlag] = useState(false)
-    const params = useParams()
+    const {id} = useParams()
 
     useEffect(() => {
-        const person = people.find((person) => person.id == params.id)
-        if(person){
-            setCurrentPerson(person)
+        const selectedPerson = people.find(person => person.id === parseInt(id))
+        if(selectedPerson){
+            setCurrentPerson(selectedPerson)
         }
-    }, [people])
+    }, [people, id])
 
+
+    const addErrand = (errand) => {
+        fetch(`http://localhost:9292/errands`, {
+            method: 'POST',
+            headers: {
+                'Content-Type' : 'application/json'
+            },
+            body: JSON.stringify(errand)
+        })
+        .then( r => r.json())
+        .then( data => {
+            console.log("New errand", data)
+            const newErrand = {
+                ...currentPerson,
+                errands: [...currentPerson.errands, data]
+            }
+            setCurrentPerson(newErrand)
+            const newErrands = people.map((person) => {
+                if(person.id === data.person_id){
+                    return newErrand
+                } else {
+                    return person
+                }
+            })
+            setPeople(newErrands)
+            setErrandFormFlag(false)
+        })
+    }
 
 
     const personDetails = currentPerson.errands.map(person =>
         <PersonErrands
         key={person.id}
-        person={person}
+        errands={person}
+        people={people}
+        setPeople={setPeople}
         currentPerson={currentPerson}
         setCurrentPerson={setCurrentPerson}
         />
@@ -32,6 +64,7 @@ const Person = ({people, setPeople}) => {
         <div className="welcome-div">
             <h1>Welcome back {name}!</h1>
             <h3>Location: {location}</h3>
+            <h3>{age}</h3>
             <h3>Member Since: {account_created}</h3>
             <br />
 
@@ -39,6 +72,7 @@ const Person = ({people, setPeople}) => {
                 {errandFormFlag ?
                 <AddErrandForm
                 currentPerson = {currentPerson}
+                addErrand={addErrand}
                 setCurrentPerson = {setCurrentPerson}
                 people={people}
                 setPeople={setPeople}

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import EditErrandForm from "./EditErrandForm";
 
-const PersonErrands = ({person, currentPerson, setCurrentPerson}) => {
-    const {id, errand, date, time, location, address, commute} = person
+const PersonErrands = ({errands, people, setPeople, currentPerson, setCurrentPerson, deleteErrand}) => {
+    const {id, errand, date, time, location, address, commute} = errands
     const [editEarrandFormFlag, setEditFormFlag] = useState(false);
 
     function handleUpdate(updatedErrand){
@@ -20,9 +20,9 @@ const PersonErrands = ({person, currentPerson, setCurrentPerson}) => {
 
 
     function handleDelete(id){
-        const filterErrands = person.errands.map((errand) => errand.id !== id)
-        const deletedErrand = {...person, filterErrands}
-        setCurrentPerson(deletedErrand)
+        const filterErrands = currentPerson.errands.filter((errand) => errand.id !== id)
+        const deletedErrand = {...currentPerson, errands: filterErrands}
+        setPeople(deletedErrand)
      }
 
      function handleDeleteComplete(){
@@ -41,7 +41,7 @@ const PersonErrands = ({person, currentPerson, setCurrentPerson}) => {
             <>
             <center><h2>{errand}</h2></center>
             <EditErrandForm
-            personErrands={person}
+            personErrands={errands}
             handleUpdate={handleUpdate}/>
             </>
         :
