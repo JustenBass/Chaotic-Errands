@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navigation from './container/Navigation';
 import HomePage from './container/HomePage';
-import PeopleList from './container/PeopleList';
+import People from './container/People';
 import Person from './container/Person';
 
 
@@ -23,7 +23,7 @@ const App = () => {
         <Navigation/>
         <Routes>
           <Route exact path="/" element={<HomePage/>} />
-          <Route exact path="/people" element={<PeopleList people={people} setPeople={setPeople}/>} />
+          <Route exact path="/people" element={<People people={people} setPeople={setPeople}/>} />
           <Route path="/people/:id" element={<Person people={people} setPeople={setPeople}/>} />
         </Routes>
       </Router>

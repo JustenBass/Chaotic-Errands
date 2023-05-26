@@ -1,17 +1,16 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 
-const AddErrandForm = ({currentPerson, setCurrentPerson, people, setPeople, setErrandFormFlag, addErrand}) => {
+const AddErrandForm = ({currentPerson, addErrand}) => {
+
 
     const [errand, setErrand] = useState({
-        errand: ""
+        errands: ""
     })
 
-    const handleChange = (e) => (
-        setErrand({
-            [e.target.errand]: e.target.value
-        })
-    )
+    const handleErrandChange = (e) => {
+        setErrand({[e.target.errands]: e.target.value})
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -22,13 +21,14 @@ const AddErrandForm = ({currentPerson, setCurrentPerson, people, setPeople, setE
         addErrand(newErrand)
     }
 
+
     return(
         <form onSubmit={handleSubmit}>
             <input
             type="text"
             placeholder="Errand..."
-            value={errand.errand}
-            onChange={handleChange}
+            value={errand.errands}
+            onChange={handleErrandChange}
             />
 
             <input type="submit"/>

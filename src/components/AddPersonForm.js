@@ -2,43 +2,27 @@ import React, { useState } from "react";
 
 const AddPersonForm = ( {addPerson} ) => {
     //people, setPeople
-    const [person, setPerson] = useState({
-        name: ""
+    const [personData, setPersonData] = useState({
+        name: "",
+        age: "",
+        location: "",
+        account_created: ""
     })
 
 
+function handleChange(event){
+    const name = event.target.name
+    const value = event.target.value
 
-
-    const handleNameChange = (e) => {
-        setPerson({
-            [e.target.name]: e.target.value
-        })
-    }
-
-    const handleAgeChange = (e) => {
-        setPerson({
-            [e.target.age]: e.target.value,
-        })
-    }
-
-
-    const handleLocationChange = (e) => {
-        setPerson({
-            [e.target.location]: e.target.value
-        })
-    }
-
-    const handleAccountChange = (e) => {
-        setPerson({
-            [e.target.account_created]: e.target.value
-        })
-    }
-
-
+    setPersonData({
+        ...personData,
+        [name]: value,
+    });
+}
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        addPerson(person)
+        addPerson(personData)
     }
 
     return(
@@ -48,32 +32,32 @@ const AddPersonForm = ( {addPerson} ) => {
             type="text"
             name="name"
             placeholder="Name..."
-            value={person.name}
-            onChange={handleNameChange}
+            onChange={handleChange}
+            value={personData.name}
             />
 
             <input
             type="text"
             name="age"
             placeholder="Age..."
-            value={person.age}
-            onChange={handleAgeChange}
+            onChange={handleChange}
+            value={personData.age}
             />
 
             <input
             type="text"
             name="location"
             placeholder="Location..."
-            value={person.location}
-            onChange={handleLocationChange}
+            onChange={handleChange}
+            value={personData.location}
             />
 
             <input
             type="text"
-            name="date"
+            name="account_created"
             placeholder="Date..."
-            value={person.account_created}
-            onChange={handleAccountChange}
+            onChange={handleChange}
+            value={personData.account_created}
             />
 
             <button type="submit">Join</button>

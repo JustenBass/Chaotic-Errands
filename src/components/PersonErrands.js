@@ -22,7 +22,7 @@ const PersonErrands = ({errands, people, setPeople, currentPerson, setCurrentPer
     function handleDelete(id){
         const filterErrands = currentPerson.errands.filter((errand) => errand.id !== id)
         const deletedErrand = {...currentPerson, errands: filterErrands}
-        setPeople(deletedErrand)
+        setCurrentPerson(deletedErrand)
      }
 
      function handleDeleteComplete(){
