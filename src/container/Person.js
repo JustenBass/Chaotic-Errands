@@ -64,7 +64,7 @@ const Person = ({people, setPeople}) => {
         <div className="welcome-div">
             <h1>Welcome back {name}!</h1>
             <h3>Location: {location}</h3>
-            <h3>{age}</h3>
+            <h3>Age: {age}</h3>
             <h3>Member Since: {account_created}</h3>
             <br />
 

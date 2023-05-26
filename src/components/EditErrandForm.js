@@ -1,87 +1,115 @@
 import React, { useState } from "react";
 
-const EditErrandForm = ({personErrands, handleUpdate}) => {
+const EditErrandForm = ({personErrands, handleUpdate, editErrand, currentPerson}) => {
     const {id, errand, date, time, location, address, commute} = personErrands
 
-    const [errands, setErrands] = useState(errand)
-    const [dates, setDates] = useState(date)
-    const [times, setTimes] = useState(time)
-    const [locationName, setLocationName] = useState(location)
-    const [addressLocation, setAddressLocation] = useState(address)
-    const [commuteTime, setCommuteTime] = useState(commute)
+    // const [errands, setErrands] = useState(errand)
+    // const [dates, setDates] = useState(date)
+    // const [times, setTimes] = useState(time)
+    // const [locationName, setLocationName] = useState(location)
+    // const [addressLocation, setAddressLocation] = useState(address)
+    // const [commuteTime, setCommuteTime] = useState(commute)
 
-    function handleSubmit(e){
-        e.preventDefault()
-
-        const edit = {
-            errand: errands,
-            date: dates,
-            time: times,
-            location: locationName,
-            address: addressLocation,
-            commute: commuteTime
-        }
-        // debugger
-
-        fetch(`http://localhost:9292/errands/${id}`, {
-            method: "PATCH",
-            headers:{
-                "Content-Type" : "application/json"
-            },
-            body: JSON.stringify(edit)
+    const [errandData, setErrandData] = useState({
+            errand: '',
+            date: '',
+            time: '',
+            location: '',
+            address: '',
+            commute: ''
         })
-        .then((r) => r.json())
-        .then((updatedErrand) => handleUpdate(updatedErrand))
-    }
+
+        const handleChange = (e) => {
+            const name = e.target.name;
+            const value = e.target.value;
+
+            setErrandData({
+                ...errandData,
+                [name]: value,
+            })
+        }
+
+        const handleSubmit = (e) => {
+            e.preventDefault()
+            const editedErrand = {
+                ...errandData,
+                person_id: currentPerson.id
+            }
+            editErrand(editedErrand)
+        }
+
+    // function handleSubmit(e){
+    //     e.preventDefault()
+
+    //     const edit = {
+    //         errand: errands,
+    //         date: dates,
+    //         time: times,
+    //         location: locationName,
+    //         address: addressLocation,
+    //         commute: commuteTime
+    //     }
+    //     // debugger
+
+    //     fetch(`http://localhost:9292/errands/${id}`, {
+    //         method: "PATCH",
+    //         headers:{
+    //             "Content-Type" : "application/json"
+    //         },
+    //         body: JSON.stringify(edit)
+    //     })
+    //     .then((r) => r.json())
+    //     .then((updatedErrand) => handleUpdate(updatedErrand))
+    // }
 
     return(
         <form onSubmit={handleSubmit}>
         <input
         type="text"
-        name="errands"
+        name="errand"
         placeholder="Errand..."
-        value={errands}
-        onChange={(e) => setErrands(e.target.value)}
+        onChange={handleChange}
+        value={errand}
         />
 
         <input
         type="text"
-        name="dates"
+        name="date"
         placeholder="MM/DD/YYYY"
-        value={dates}
-        onChange={(e) => setDates(e.target.value)}
+        onChange={handleChange}
+        value={date}
         />
 
         <input
         type="text"
-        name="times"
+        name="time"
         placeholder="Time..."
-        value={times}
-        onChange={(e) => setTimes(e.target.value)}
+        onChange={handleChange}
+        value={time}
         />
 
         <input
         type="text"
-        name="locationName"
+        name="location"
         placeholder="Location..."
-        value={locationName}
-        onChange={(e) => setLocationName(e.target.value)}
+        onChange={handleChange}
+        value={location}
         />
 
         <input
         type="text"
         name="address"
         placeholder="Address..."
-        value={addressLocation}
-        onChange={(e) => setAddressLocation(e.target.value)}
+        onChange={handleChange}
+        value={address}
         />
 
         <input
         type="text"
-        name="commuteTime"
+        name="commute"
         placeholder="Commute..."
-        value={commuteTime}
-        onChange={(e) => setCommuteTime(e.target.value)}
+        onChange={handleChange}
+        value={commute}
         />
 
         <input type="submit" value="Save"/>
