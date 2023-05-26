@@ -1,14 +1,7 @@
 import React, { useState } from "react";
 
-const EditErrandForm = ({personErrands, handleUpdate, editErrand, currentPerson}) => {
-    const {id, errand, date, time, location, address, commute} = personErrands
+const EditErrandForm = ({editErrand, currentPerson}) => {
 
-    // const [errands, setErrands] = useState(errand)
-    // const [dates, setDates] = useState(date)
-    // const [times, setTimes] = useState(time)
-    // const [locationName, setLocationName] = useState(location)
-    // const [addressLocation, setAddressLocation] = useState(address)
-    // const [commuteTime, setCommuteTime] = useState(commute)
 
     const [errandData, setErrandData] = useState({
             errand: '',
@@ -38,30 +31,6 @@ const EditErrandForm = ({personErrands, handleUpdate, editErrand, currentPerson}
             editErrand(editedErrand)
         }
 
-    // function handleSubmit(e){
-    //     e.preventDefault()
-
-    //     const edit = {
-    //         errand: errands,
-    //         date: dates,
-    //         time: times,
-    //         location: locationName,
-    //         address: addressLocation,
-    //         commute: commuteTime
-    //     }
-    //     // debugger
-
-    //     fetch(`http://localhost:9292/errands/${id}`, {
-    //         method: "PATCH",
-    //         headers:{
-    //             "Content-Type" : "application/json"
-    //         },
-    //         body: JSON.stringify(edit)
-    //     })
-    //     .then((r) => r.json())
-    //     .then((updatedErrand) => handleUpdate(updatedErrand))
-    // }
-
     return(
         <form onSubmit={handleSubmit}>
         <input
@@ -69,7 +38,7 @@ const EditErrandForm = ({personErrands, handleUpdate, editErrand, currentPerson}
         name="errand"
         placeholder="Errand..."
         onChange={handleChange}
-        value={errand}
+        value={errandData.errand}
         />
 
         <input
@@ -77,7 +46,7 @@ const EditErrandForm = ({personErrands, handleUpdate, editErrand, currentPerson}
         name="date"
         placeholder="MM/DD/YYYY"
         onChange={handleChange}
-        value={date}
+        value={errandData.date}
         />
 
         <input
@@ -85,7 +54,7 @@ const EditErrandForm = ({personErrands, handleUpdate, editErrand, currentPerson}
         name="time"
         placeholder="Time..."
         onChange={handleChange}
-        value={time}
+        value={errandData.time}
         />
 
         <input
@@ -93,7 +62,7 @@ const EditErrandForm = ({personErrands, handleUpdate, editErrand, currentPerson}
         name="location"
         placeholder="Location..."
         onChange={handleChange}
-        value={location}
+        value={errandData.location}
         />
 
         <input
@@ -101,7 +70,7 @@ const EditErrandForm = ({personErrands, handleUpdate, editErrand, currentPerson}
         name="address"
         placeholder="Address..."
         onChange={handleChange}
-        value={address}
+        value={errandData.address}
         />
 
         <input
@@ -109,7 +78,7 @@ const EditErrandForm = ({personErrands, handleUpdate, editErrand, currentPerson}
         name="commute"
         placeholder="Commute..."
         onChange={handleChange}
-        value={commute}
+        value={errandData.commute}
         />
 
         <input type="submit" value="Save"/>
