@@ -7,16 +7,18 @@ const Person = ({people, setPeople}) => {
     const [currentPerson, setCurrentPerson] = useState({
         errands: [],
     })
+    console.log("current person", currentPerson)
+    console.log("current person errands", currentPerson.errands)
     const {name, age, location, account_created} = currentPerson
     const [errandFormFlag, setErrandFormFlag] = useState(false)
-    const {id} = useParams()
+    const params = useParams()
 
     useEffect(() => {
-        const selectedPerson = people.find(person => person.id === parseInt(id))
+        const selectedPerson = people.find(person => person.id == params.id)
         if(selectedPerson){
             setCurrentPerson(selectedPerson)
         }
-    }, [people, id])
+    }, [people])
 
 
     const addErrand = (errand) => {
@@ -48,10 +50,10 @@ const Person = ({people, setPeople}) => {
     }
 
 
-    const personDetails = currentPerson.errands.map(person =>
+    const personDetails = currentPerson.errands.map((errand) =>
         <PersonErrands
-        key={person.id}
-        errands={person}
+        key={errand.id}
+        errands={errand}
         people={people}
         setPeople={setPeople}
         currentPerson={currentPerson}
@@ -62,7 +64,8 @@ const Person = ({people, setPeople}) => {
     return(
         <>
         <div className="welcome-div">
-            <h1>Welcome back {name}!</h1>
+            <h1>Welcome Back {name}!</h1>
+            <hr className="welcome-title"/>
             <h3>Location: {location}</h3>
             <h3>Age: {age}</h3>
             <h3>Member Since: {account_created}</h3>

@@ -15,24 +15,26 @@ const PersonErrands = ({errands, people, setPeople, currentPerson, setCurrentPer
             body: JSON.stringify(errand)
         })
         .then((r) => r.json())
-        .then((data) => {
-            const newPersonErrands = currentPerson.errands.map((e) => {
-                if(e.id === data.id) {
-                    return data
+        .then((updatedErrand) => {
+            const newPersonErrands = currentPerson.errands.map((errand) => {
+                if(errand.id === updatedErrand.id) {
+                    console.log('updated', updatedErrand)
+                    return updatedErrand
                 } else {
-                    return e
+                    console.log('non updated', errand)
+                    return errand
                 }
             })
-            setCurrentPerson({
-                ...currentPerson,
-                errands: newPersonErrands
-            })
 
-            const newPeopleErrands = people.map((p) => {
-                if(p.id === data.person_id){
-                    return newPersonErrands
+
+            const newPeopleErrands = people.map((person) => {
+                if(person.id === updatedErrand.person_id){
+                    return {
+                        ...currentPerson,
+                        errands: newPersonErrands
+                    }
                 } else {
-                    return p
+                    return person
                 }
             })
             setPeople(newPeopleErrands)
@@ -40,6 +42,8 @@ const PersonErrands = ({errands, people, setPeople, currentPerson, setCurrentPer
         })
     }
 
+
+    
     return(
 
         <>

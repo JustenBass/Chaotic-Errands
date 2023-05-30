@@ -74,7 +74,7 @@
   position: absolute;
   width: 200%;
   text-align: center;
-  border: rgb(240, 195, 71) solid 4px;
+  border: rgb(240, 195, 71) solid 3px;
   padding: 1rem;
   width: 40rem;
   /* height: rem;
@@ -85,6 +85,10 @@
 
 .errand-title{
   width: 50%;
+}
+
+.welcome-title{
+  width: 100%;
 }
 
 /* .errand-card{

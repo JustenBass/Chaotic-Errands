@@ -33,6 +33,7 @@ const EditErrandForm = ({editErrand, currentPerson}) => {
 
     return(
         <form onSubmit={handleSubmit}>
+
         <input
         type="text"
         name="errand"
