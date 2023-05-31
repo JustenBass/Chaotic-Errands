@@ -7,7 +7,7 @@ const PersonErrands = ({errands, people, setPeople, currentPerson, setCurrentPer
 
 
     const editErrand = (errand) => {
-        fetch(`http://localhost:9292/errands/${id}`, {
+        fetch(`http://localhost:9292/errands/${id}`, {   //people/currentPerson.id/errands/${}
             method: 'PATCH',
             headers: {
                 'Content-Type' : 'application/json'
@@ -43,7 +43,29 @@ const PersonErrands = ({errands, people, setPeople, currentPerson, setCurrentPer
     }
 
 
-    
+    const deleteErrand = (ident) => {
+        fetch(`http://localhost:9292/errands/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type' : 'application/json'
+            }
+        })
+        .then(() => {
+            const deletedErrands = currentPerson.errands.filter((errand) => errand.id !== ident)
+
+            const peopleDeletedErrands = people.map((errand) => {
+                if(errand.id === ident.person_id){
+                    return {
+                        ...currentPerson,
+                        errands: deletedErrands
+                    }
+                } else {
+                    return errand
+                }
+            })
+            setPeople(peopleDeletedErrands)
+        })
+    }
     return(
 
         <>
@@ -53,6 +75,7 @@ const PersonErrands = ({errands, people, setPeople, currentPerson, setCurrentPer
             <EditErrandForm
             editErrand={editErrand}
             currentPerson={currentPerson}
+            errands={errands}
             />
         </>
         :
@@ -68,7 +91,7 @@ const PersonErrands = ({errands, people, setPeople, currentPerson, setCurrentPer
 
             <center>
             <span><button onClick={() => setEditFormFlag((editErrand) => !editErrand)}>✏️</button></span>
-            <span><button type="delete">🗑</button></span>
+            <span><button type="delete" onClick={deleteErrand}>🗑</button></span>
             </center>
             </>
         }

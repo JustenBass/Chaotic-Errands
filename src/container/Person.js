@@ -64,7 +64,7 @@ const Person = ({people, setPeople}) => {
     return(
         <>
         <div className="welcome-div">
-            <h1>Welcome Back {name}!</h1>
+            <h1>Welcome Back: {name}!</h1>
             <hr className="welcome-title"/>
             <h3>Location: {location}</h3>
             <h3>Age: {age}</h3>

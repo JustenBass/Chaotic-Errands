@@ -1,16 +1,19 @@
 import React, { useState } from "react";
 
-const EditErrandForm = ({editErrand, currentPerson}) => {
+const EditErrandForm = ({editErrand, errands, currentPerson}) => {
 
+    const {errand, date, time, location, address, commute} = errands
 
     const [errandData, setErrandData] = useState({
-            errand: '',
-            date: '',
-            time: '',
-            location: '',
-            address: '',
-            commute: ''
+            errand: errand,
+            date: date,
+            time: time,
+            location: location,
+            address: address,
+            commute: commute
         })
+
+        console.log('errand-data', errandData)
 
         const handleChange = (e) => {
             const name = e.target.name;
