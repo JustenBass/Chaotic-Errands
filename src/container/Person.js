@@ -11,10 +11,10 @@ const Person = ({people, setPeople}) => {
     console.log("current person errands", currentPerson.errands)
     const {name, age, location, account_created} = currentPerson
     const [errandFormFlag, setErrandFormFlag] = useState(false)
-    const params = useParams()
+    const {id} = useParams()
 
     useEffect(() => {
-        const selectedPerson = people.find(person => person.id == params.id)
+        const selectedPerson = people.find(person => person.id == id)
         if(selectedPerson){
             setCurrentPerson(selectedPerson)
         }
@@ -22,7 +22,7 @@ const Person = ({people, setPeople}) => {
 
 
     const addErrand = (errand) => {
-        fetch(`http://localhost:9292/errands`, {
+        fetch(`http://localhost:9292/people/${id}/errands`, {
             method: 'POST',
             headers: {
                 'Content-Type' : 'application/json'
