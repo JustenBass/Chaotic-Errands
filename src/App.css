@@ -37,18 +37,17 @@
   }
 }
 
-/* .app-div{
-  background-image: url("https://img.freepik.com/free-vector/luxury-dark-seamless-pattern_1048-10342.jpg");
-  height: auto;
-  width: 100%;
-} */
 
 .link-div{
   background-color: rgba(235, 171, 45, 0.831);
+  text-align: center;
+  border: black solid 1px;
+  padding: 1rem;
   width: 25%;
   height: 17%;
-  border: 3px solid #fff;
-  padding: 20px;
+  display: inline-grid;
+  margin: 2rem 1rem;
+  margin-left: 15%;
 }
 
 .link{
@@ -77,10 +76,6 @@
   border: rgb(240, 195, 71) solid 3px;
   padding: 1rem;
   width: 40rem;
-  /* height: rem;
-  display: inline-grid;
-  margin: 2rem 1rem;
-  margin-left: 1.5%; */
 }
 
 .errand-title{
@@ -90,14 +85,3 @@
 .welcome-title{
   width: 100%;
 }
-
-/* .errand-card{
-  text-align: center;
-  border: black solid 1px;
-  padding: 1rem;
-  width: 18rem;
-  height: 31rem;
-  display: inline-grid;
-  margin: 2rem 1rem;
-  margin-left: 1.5%;
-} */
