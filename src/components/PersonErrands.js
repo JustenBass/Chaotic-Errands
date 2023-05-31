@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import EditErrandForm from "./EditErrandForm";
 import { useParams } from "react-router-dom";
+import { DOM_KEY_LOCATION } from "@testing-library/user-event/dist/keyboard/types";
 const PersonErrands = ({errands, people, setPeople, currentPerson, setCurrentPerson}) => {
     const {id, errand, date, time, location, address, commute} = errands
     const [editEarrandFormFlag, setEditFormFlag] = useState(false);
@@ -16,7 +17,7 @@ const PersonErrands = ({errands, people, setPeople, currentPerson, setCurrentPer
         })
         .then((r) => r.json())
         .then((updatedErrand) => {
-            const newPersonErrands = currentPerson.errands.map((errand) => {
+            const currentPersonErrands = currentPerson.errands.map((errand) => {
                 if(errand.id === updatedErrand.id) {
                     console.log('updated', updatedErrand)
                     return updatedErrand
@@ -27,23 +28,23 @@ const PersonErrands = ({errands, people, setPeople, currentPerson, setCurrentPer
             })
 
 
-            const newPeopleErrands = people.map((person) => {
+            const peopleErrands = people.map((person) => {
                 if(person.id === updatedErrand.person_id){
                     return {
                         ...currentPerson,
-                        errands: newPersonErrands
+                        errands: currentPersonErrands
                     }
                 } else {
                     return person
                 }
             })
-            setPeople(newPeopleErrands)
+            setPeople(peopleErrands)
             setEditFormFlag(false)
         })
     }
 
 
-    const deleteErrand = (ident) => {
+    const deleteErrand = (errandId) => {
         fetch(`http://localhost:9292/errands/${id}`, {
             method: 'DELETE',
             headers: {
@@ -51,19 +52,24 @@ const PersonErrands = ({errands, people, setPeople, currentPerson, setCurrentPer
             }
         })
         .then(() => {
-            const deletedErrands = currentPerson.errands.filter((errand) => errand.id !== ident)
+            const currentPersonDeletedErrands = currentPerson.errands.filter((errand) => errand.id !== errandId)
+            // setCurrentPerson({
+            //     ...currentPerson,
+            //     errands: currentPersonDeletedErrands
+            // })
 
-            const peopleDeletedErrands = people.map((errand) => {
-                if(errand.id === ident.person_id){
+            const peopleDeletedErrands = people.map((person) => {
+                if(person.id === currentPerson.id){
                     return {
-                        ...currentPerson,
-                        errands: deletedErrands
+                        ...person,
+                        errands: currentPersonDeletedErrands
                     }
                 } else {
-                    return errand
+                    return person
                 }
             })
             setPeople(peopleDeletedErrands)
+
         })
     }
     return(
@@ -91,7 +97,7 @@ const PersonErrands = ({errands, people, setPeople, currentPerson, setCurrentPer
 
             <center>
             <span><button onClick={() => setEditFormFlag((editErrand) => !editErrand)}>✏️</button></span>
-            <span><button type="delete" onClick={deleteErrand}>🗑</button></span>
+            <span><button type="delete" onClick={() => deleteErrand(errands.id)}>🗑</button></span>
             </center>
             </>
         }
