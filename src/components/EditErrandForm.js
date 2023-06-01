@@ -2,12 +2,13 @@ import React, { useState } from "react";
 
 const EditErrandForm = ({editErrand, errands, currentPerson}) => {
 
-    const {errand, date, time, location, address, commute} = errands
+    const {errand, date, time, am_pm, location, address, commute} = errands
 
     const [errandData, setErrandData] = useState({
             errand: errand,
             date: date,
             time: time,
+            am_pm: am_pm,
             location: location,
             address: address,
             commute: commute
@@ -61,10 +62,19 @@ const EditErrandForm = ({editErrand, errands, currentPerson}) => {
         value={errandData.time}
         />
 
-        <select onChange={""}>
-            <option value="am">am</option>
-            <option value="pm">pm</option>
-         </select>
+        {/* <select onChange={handleChange}>
+            <option name="am_pm" value={errandData.am_pm}>am</option>
+            <option name="am_pm" value={errandData.am_pm}>pm</option>
+         </select> */}
+
+<input
+        type="text"
+        name="am_pm"
+        placeholder="a.m/p.m..."
+        onChange={handleChange}
+        value={errandData.am_pm}
+        />
+
 
 
         <input

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import EditErrandForm from "./EditErrandForm";
 import { useParams } from "react-router-dom";
 const PersonErrands = ({errands, people, setPeople, currentPerson, setCurrentPerson}) => {
-    const {id, errand, date, time, location, address, commute} = errands
+    const {id, errand, date, time, am_pm, location, address, commute} = errands
     const [editEarrandFormFlag, setEditFormFlag] = useState(false);
 
 
@@ -89,7 +89,7 @@ const PersonErrands = ({errands, people, setPeople, currentPerson, setCurrentPer
             <hr className="errand-title"/>
 
             <center><h3>Date: {date}</h3></center>
-            <center><h3>Time: {time}</h3></center>
+            <center><h3>Time: {time} {am_pm}</h3></center>
             <center><h3>Location: {location}</h3></center>
             <center><h3>Address: {address}</h3></center>
             <center><h3>Commute: {commute}</h3></center>
