@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import EditErrandForm from "./EditErrandForm";
 import { useParams } from "react-router-dom";
-import { DOM_KEY_LOCATION } from "@testing-library/user-event/dist/keyboard/types";
 const PersonErrands = ({errands, people, setPeople, currentPerson, setCurrentPerson}) => {
     const {id, errand, date, time, location, address, commute} = errands
     const [editEarrandFormFlag, setEditFormFlag] = useState(false);

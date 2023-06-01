@@ -61,6 +61,12 @@ const EditErrandForm = ({editErrand, errands, currentPerson}) => {
         value={errandData.time}
         />
 
+        <select onChange={""}>
+            <option value="am">am</option>
+            <option value="pm">pm</option>
+         </select>
+
+
         <input
         type="text"
         name="location"
