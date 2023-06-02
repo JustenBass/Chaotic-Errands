@@ -10,17 +10,16 @@ const Navigation = () => {
         background: "black",
         textDecoration: "none",
         color: "white",
-        fontweight: "bold"
-    }
+    };
 
     return(
-        <div>
+    <div>
         <NavLink
         to="/"
         exact
         style={linkStyling}
         >
-            Home
+            HOME
         </NavLink>
 
         <NavLink
@@ -28,7 +27,7 @@ const Navigation = () => {
         exact
         style={linkStyling}
         >
-            People
+            USERS
         </NavLink>
     </div>
     );

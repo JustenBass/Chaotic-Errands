@@ -10,7 +10,7 @@ const PeopleLink = ({people}) => {
                 </div>
             </Link>
         </div>
-    )
-}
+    );
+};
 
 export default PeopleLink

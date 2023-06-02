@@ -2,12 +2,11 @@ import React, { useState } from "react";
 import EditErrandForm from "./EditErrandForm";
 import { useParams } from "react-router-dom";
 const PersonErrands = ({errands, people, setPeople, currentPerson, setCurrentPerson}) => {
-    const {errand, date, time, am_pm, location, address} = errands
+    const {errand, date, time, am_pm, location, address} = errands;
     const [editEarrandFormFlag, setEditFormFlag] = useState(false);
-    const params = useParams()
 
     const editErrand = (errand) => {
-        fetch(`http://localhost:9292/people/${currentPerson.id}/errands/${errands.id}`, {   //people/currentPerson.id/errands/${}
+        fetch(`http://localhost:9292/people/${currentPerson.id}/errands/${errands.id}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type' : 'application/json'
@@ -24,7 +23,7 @@ const PersonErrands = ({errands, people, setPeople, currentPerson, setCurrentPer
                     console.log('non updated', errand)
                     return errand
                 }
-            })
+            });
 
 
             const peopleErrands = people.map((person) => {
@@ -36,11 +35,11 @@ const PersonErrands = ({errands, people, setPeople, currentPerson, setCurrentPer
                 } else {
                     return person
                 }
-            })
+            });
             setPeople(peopleErrands)
             setEditFormFlag(false)
-        })
-    }
+        });
+    };
 
 
     const deleteErrand = (errandId) => {
@@ -48,14 +47,15 @@ const PersonErrands = ({errands, people, setPeople, currentPerson, setCurrentPer
             method: 'DELETE',
             headers: {
                 'Content-Type' : 'application/json'
-            }
+            },
         })
         .then(() => {
             const currentPersonDeletedErrands = currentPerson.errands.filter((errand) => errand.id !== errandId)
+
             setCurrentPerson({
                 ...currentPerson,
                 errands: currentPersonDeletedErrands
-            })
+            });
 
             const peopleDeletedErrands = people.map((person) => {
                 if(person.id === currentPerson.id){
@@ -66,42 +66,42 @@ const PersonErrands = ({errands, people, setPeople, currentPerson, setCurrentPer
                 } else {
                     return person
                 }
-            })
+            });
             setPeople(peopleDeletedErrands)
+        });
+    };
 
-        })
-    }
+
     return(
-
         <>
             {editEarrandFormFlag ?
-            <>
-            <center><h2>{errand}</h2></center>
-            <EditErrandForm
-            editErrand={editErrand}
-            currentPerson={currentPerson}
-            errands={errands}
-            />
-        </>
-        :
-            <>
-        <center><div className="errand-title-div"><h2>{errand}</h2></div></center>
-            <hr className="errand-title"/>
+                <>
+                    <center><h2 className="app-font">{errand}</h2></center>
+                        <EditErrandForm
+                        editErrand={editErrand}
+                        currentPerson={currentPerson}
+                        errands={errands}
+                        />
+                </>
+                    :
+                <>
+                    <center><div className="errand-title-div"><h2>{errand}</h2></div></center>
+                    <hr className="errand-title"/>
 
-            <center><h3>Date: {date}</h3></center>
-            <center><h3>Time: {time} {am_pm}</h3></center>
-            <center><h3>Location: {location}</h3></center>
-            <center><h3>Address: {address}</h3></center>
+                    <center><h3>Date: {date}</h3></center>
+                    <center><h3>Time: {time} {am_pm}</h3></center>
+                    <center><h3>Location: {location}</h3></center>
+                    <center><h3>Address: {address}</h3></center>
 
-            <center>
-            <span><button className="edit-errand-button" onClick={() => setEditFormFlag((editErrand) => !editErrand)}>✏️</button></span>
-            <span><button className="edit-errand-button" type="delete" onClick={() => deleteErrand(errands.id)}>🗑</button></span>
-            <hr/>
-            </center>
-            </>
-        }
+                    <center>
+                    <span><button className="edit-errand-button" onClick={() => setEditFormFlag((editErrand) => !editErrand)}>✏️</button></span>
+                    <span><button className="edit-errand-button" type="delete" onClick={() => deleteErrand(errands.id)}>🗑</button></span>
+                    <hr/>
+                    </center>
+                </>
+            };
         </>
-    )
-}
+    );
+};
 
 export default PersonErrands
