@@ -32,19 +32,22 @@ const Person = ({people, setPeople}) => {
         .then( r => r.json())
         .then( data => {
             console.log("New errand", data)
-            const newErrand = {
+            const personNewErrandPost = {
                 ...currentPerson,
                 errands: [...currentPerson.errands, data]
             }
-            setCurrentPerson(newErrand)
-            const newErrands = people.map((person) => {
+            setCurrentPerson(personNewErrandPost)
+
+            const peopleAddNewErrand = people.map((person) => {
                 if(person.id === data.person_id){
-                    return newErrand
+                    console.log("look", person)
+                    return personNewErrandPost
                 } else {
                     return person
                 }
             })
-            setPeople(newErrands)
+            setPeople(peopleAddNewErrand)
+            console.log("look2", peopleAddNewErrand)
             setErrandFormFlag(false)
         })
     }
@@ -71,7 +74,7 @@ const Person = ({people, setPeople}) => {
             <h3>Member Since: {account_created}</h3>
             <br />
 
-            <button onClick={() => setErrandFormFlag((errand) => !errand)}>Add New Errands!</button>
+            <center><button className="add-errand-button" onClick={() => setErrandFormFlag((errand) => !errand)}>Add New Errands!</button></center>
                 {errandFormFlag ?
                 <AddErrandForm
                 currentPerson = {currentPerson}
@@ -84,7 +87,8 @@ const Person = ({people, setPeople}) => {
         </div>
 
         <div className="person-detail-div">
-            <center><h2>TO DO LIST</h2></center>
+            <center><h1>TO DO LIST</h1></center>
+            <hr/>
             {personDetails}
         </div>
         </>

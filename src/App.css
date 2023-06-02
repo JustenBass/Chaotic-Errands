@@ -37,11 +37,29 @@
   }
 }
 
+.add-form{
+  background-color: black;
+  height: 51px;
 
+}
+
+.add-input{
+  height: 45px;
+  font-weight: bold;
+  background-color: white;
+  border: black solid 1px;
+}
+
+.add-form-button{
+  background-color: black;
+  border: black;
+  color: white;
+  font-weight: bold;
+}
 .link-div{
   background-color: rgba(235, 171, 45, 0.831);
   text-align: center;
-  border: black solid 1px;
+  border: white solid 4px;
   padding: 1rem;
   width: 25%;
   height: 17%;
@@ -60,26 +78,45 @@
   background-color: rgba(235, 171, 45, 0.831);
   width: 25%;
   height: 17%;
-  border: 3px solid #fff;
+  border: 4px solid #fff;
   padding: 20px;
 
 }
 
+.add-errand-button{
+  width: 89%;
+  height: 30px;
+  background-color: black;
+  color: white;
+  font-weight: bold;
+  border: black;
+}
+
 
 .person-detail-div{
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   margin-left: 40%;
   margin-top: -17.5%;
   position: absolute;
   width: 200%;
   text-align: center;
-  border: rgb(240, 195, 71) solid 3px;
-  padding: 1rem;
+  border: rgb(240, 195, 71) solid 4px;
   width: 40rem;
 }
 
+
+
 .errand-title{
   width: 50%;
+  height: 4px;
+  background-color: rgba(235, 171, 45, 0.831);
+  border: rgba(235, 171, 45, 0.831);
+}
+
+.edit-errand-button{
+  background-color: white;
+  font-size: x-large;
+
 }
 
 .welcome-title{

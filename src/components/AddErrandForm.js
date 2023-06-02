@@ -7,6 +7,7 @@ const AddErrandForm = ({currentPerson, addErrand}) => {
         errand: "",
         date: "",
         time: "",
+        daynight: "",
         location: "",
         address: "",
         commute:""
@@ -34,15 +35,18 @@ const AddErrandForm = ({currentPerson, addErrand}) => {
 
     return(
         <form onSubmit={handleSubmit}>
+            <center>
             <input
+            className="add-input"
             type="text"
             name="errand"
-            placeholder="Errand..."
+            placeholder="Tyoe errand..."
             onChange={handleErrandChange}
             value={errandData.errand}
             />
 
             <input
+            className="add-input"
             type="text"
             name="date"
             placeholder="Date..."
@@ -51,6 +55,7 @@ const AddErrandForm = ({currentPerson, addErrand}) => {
             />
 
             <input
+            className="add-input"
             type="text"
             name="time"
             placeholder="Time..."
@@ -58,12 +63,20 @@ const AddErrandForm = ({currentPerson, addErrand}) => {
             value={errandData.time}
             />
 
-            <select onChange={""}>
-            <option value="am">am</option>
-            <option value="pm">pm</option>
-            </select>
+            <input
+            className="add-input"
+            type="text"
+            name="am_pm"
+            placeholder="am/pm..."
+            onChange={handleErrandChange}
+            value={errandData.am_pm}
+            />
+
+
+
 
             <input
+            className="add-input"
             type="text"
             name="location"
             placeholder="Location..."
@@ -72,6 +85,7 @@ const AddErrandForm = ({currentPerson, addErrand}) => {
             />
 
             <input
+            className="add-input"
             type="text"
             name="address"
             placeholder="Address..."
@@ -79,19 +93,21 @@ const AddErrandForm = ({currentPerson, addErrand}) => {
             value={errandData.address}
             />
 
-            <input
+            {/* <input
+            className="add-input"
             type="text"
             name="commute"
             placeholder="Commute..."
             onChange={handleErrandChange}
             value={errandData.commute}
-            />
+            /> */}
 
 
 
 
 
-            <input type="submit"/>
+            <input className="add-errand-button" type="submit"/>
+            </center>
 
         </form>
     )

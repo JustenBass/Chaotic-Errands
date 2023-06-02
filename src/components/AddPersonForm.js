@@ -26,41 +26,48 @@ function handleChange(event){
     }
 
     return(
-        <div>
+        <div className="add-form">
             <form onSubmit={handleSubmit}>
+
+            <center>
             <input
+            className="add-input"
             type="text"
             name="name"
-            placeholder="Name..."
+            placeholder="Type name..."
             onChange={handleChange}
             value={personData.name}
             />
 
             <input
+            className="add-input"
             type="text"
             name="age"
-            placeholder="Age..."
+            placeholder="Type age..."
             onChange={handleChange}
             value={personData.age}
             />
 
             <input
+            className="add-input"
             type="text"
             name="location"
-            placeholder="Location..."
+            placeholder="Type location..."
             onChange={handleChange}
             value={personData.location}
             />
 
             <input
+            className="add-input"
             type="text"
             name="account_created"
-            placeholder="Date..."
+            placeholder="Type MM/DD/YY"
             onChange={handleChange}
             value={personData.account_created}
             />
 
-            <button type="submit">Join</button>
+          <button className="add-form-button" type="submit">Click To Join!</button></center>
+
             </form>
         </div>
     )

@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import EditErrandForm from "./EditErrandForm";
 import { useParams } from "react-router-dom";
 const PersonErrands = ({errands, people, setPeople, currentPerson, setCurrentPerson}) => {
-    const {id, errand, date, time, am_pm, location, address, commute} = errands
+    const {errand, date, time, location, address, commute, am_pm} = errands
     const [editEarrandFormFlag, setEditFormFlag] = useState(false);
-
+    const params = useParams()
 
     const editErrand = (errand) => {
-        fetch(`http://localhost:9292/errands/${id}`, {   //people/currentPerson.id/errands/${}
+        fetch(`http://localhost:9292/people/${currentPerson.id}/errands/${errands.id}`, {   //people/currentPerson.id/errands/${}
             method: 'PATCH',
             headers: {
                 'Content-Type' : 'application/json'
@@ -44,7 +44,7 @@ const PersonErrands = ({errands, people, setPeople, currentPerson, setCurrentPer
 
 
     const deleteErrand = (errandId) => {
-        fetch(`http://localhost:9292/errands/${id}`, {
+        fetch(`http://localhost:9292/people/${currentPerson.id}/errands/${errands.id}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type' : 'application/json'
@@ -52,10 +52,10 @@ const PersonErrands = ({errands, people, setPeople, currentPerson, setCurrentPer
         })
         .then(() => {
             const currentPersonDeletedErrands = currentPerson.errands.filter((errand) => errand.id !== errandId)
-            // setCurrentPerson({
-            //     ...currentPerson,
-            //     errands: currentPersonDeletedErrands
-            // })
+            setCurrentPerson({
+                ...currentPerson,
+                errands: currentPersonDeletedErrands
+            })
 
             const peopleDeletedErrands = people.map((person) => {
                 if(person.id === currentPerson.id){
@@ -85,7 +85,7 @@ const PersonErrands = ({errands, people, setPeople, currentPerson, setCurrentPer
         </>
         :
             <>
-        <center><h2>{errand}</h2></center>
+        <center><div className="errand-title-div"><h2>{errand}</h2></div></center>
             <hr className="errand-title"/>
 
             <center><h3>Date: {date}</h3></center>
@@ -95,8 +95,9 @@ const PersonErrands = ({errands, people, setPeople, currentPerson, setCurrentPer
             <center><h3>Commute: {commute}</h3></center>
 
             <center>
-            <span><button onClick={() => setEditFormFlag((editErrand) => !editErrand)}>✏️</button></span>
-            <span><button type="delete" onClick={() => deleteErrand(errands.id)}>🗑</button></span>
+            <span><button className="edit-errand-button" onClick={() => setEditFormFlag((editErrand) => !editErrand)}>✏️</button></span>
+            <span><button className="edit-errand-button" type="delete" onClick={() => deleteErrand(errands.id)}>🗑</button></span>
+            <hr/>
             </center>
             </>
         }

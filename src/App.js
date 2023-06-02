@@ -9,7 +9,7 @@ import Person from './container/Person';
 
 const App = () => {
   const [people, setPeople] = useState([])
-  console.log(people)
+  console.log("people", people)
 
   useEffect(() => {
     fetch('http://localhost:9292/people')
