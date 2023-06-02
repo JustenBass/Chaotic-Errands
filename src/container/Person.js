@@ -6,19 +6,19 @@ import AddErrandForm from "../components/AddErrandForm";
 const Person = ({people, setPeople}) => {
     const [currentPerson, setCurrentPerson] = useState({
         errands: [],
-    })
+    });
     console.log("current person", currentPerson)
     console.log("current person errands", currentPerson.errands)
-    const {name, age, location, account_created} = currentPerson
-    const [errandFormFlag, setErrandFormFlag] = useState(false)
-    const {id} = useParams()
+    const {name, age, location, account_created} = currentPerson;
+    const [errandFormFlag, setErrandFormFlag] = useState(false);
+    const {id} = useParams();
 
     useEffect(() => {
         const selectedPerson = people.find(person => person.id == id)
         if(selectedPerson){
             setCurrentPerson(selectedPerson)
         }
-    }, [people])
+    }, [people]);
 
 
     const addErrand = (errand) => {
@@ -36,7 +36,7 @@ const Person = ({people, setPeople}) => {
                 ...currentPerson,
                 errands: [...currentPerson.errands, data]
             }
-            setCurrentPerson(personNewErrandPost)
+            setCurrentPerson(personNewErrandPost);
 
             const peopleAddNewErrand = people.map((person) => {
                 if(person.id === data.person_id){
@@ -46,11 +46,11 @@ const Person = ({people, setPeople}) => {
                     return person
                 }
             })
-            setPeople(peopleAddNewErrand)
+            setPeople(peopleAddNewErrand);
             console.log("look2", peopleAddNewErrand)
-            setErrandFormFlag(false)
-        })
-    }
+            setErrandFormFlag(false);
+        });
+    };
 
 
     const personDetails = currentPerson.errands.map((errand) =>
@@ -62,37 +62,41 @@ const Person = ({people, setPeople}) => {
         currentPerson={currentPerson}
         setCurrentPerson={setCurrentPerson}
         />
-    )
+    );
 
     return(
-        <>
-        <div className="welcome-div">
-            <center><h1>Welcome Back {name}!</h1></center>
-            <center><hr className="welcome-title"/></center>
-            <center><h3>Location: {location}</h3></center>
-            <center><h3>Age: {age}</h3></center>
-            <center><h3>Member Since: {account_created}</h3></center>
-            <br />
+    <>
+    <div className="welcome-div">
+        <center><h1>Welcome Back {name}!</h1></center>
+        <center><hr className="welcome-title"/></center>
 
-            <center><button className="add-errand-button" onClick={() => setErrandFormFlag((errand) => !errand)}>Add New Errands!</button></center>
-                {errandFormFlag ?
-                <AddErrandForm
-                currentPerson = {currentPerson}
-                addErrand={addErrand}
-                setCurrentPerson = {setCurrentPerson}
-                people={people}
-                setPeople={setPeople}
-                setErrandFormFlag={setErrandFormFlag}
-                /> : null}
-        </div>
+        <center><h3>Location: {location}</h3></center>
+        <center><h3>Age: {age}</h3></center>
+        <center><h3>Member Since: {account_created}</h3></center>
+        <br />
 
-        <div className="person-detail-div">
-            <center><h1>TO DO LIST</h1></center>
-            <hr/>
-            {personDetails}
-        </div>
-        </>
-    )
-}
+        <center>
+            <button className="add-errand-button" onClick={() => setErrandFormFlag((errand) => !errand)}>Add New Errands!</button>
+        </center>
+
+        {errandFormFlag ?
+        <AddErrandForm
+        currentPerson = {currentPerson}
+        addErrand={addErrand}
+        setCurrentPerson = {setCurrentPerson}
+        people={people}
+        setPeople={setPeople}
+        setErrandFormFlag={setErrandFormFlag}
+        /> : null}
+    </div>
+
+    <div className="person-detail-div">
+        <center><h1>TO DO LIST</h1></center>
+        <hr/>
+        {personDetails}
+    </div>
+    </>
+    );
+};
 
 export default Person

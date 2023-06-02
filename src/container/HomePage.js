@@ -2,7 +2,13 @@ import React from "react";
 
 const HomePage = () => {
     return(
-        <h1>Hello Welcome to Controlled Errands</h1>
+        <>
+        <div className="home-logo">
+                <h1>CHAOTIC ERRAND</h1>
+            </div>
+        <div className="home-div">
+        </div>
+        </>
     )
 }
 

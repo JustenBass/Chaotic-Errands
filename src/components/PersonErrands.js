@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import EditErrandForm from "./EditErrandForm";
 import { useParams } from "react-router-dom";
 const PersonErrands = ({errands, people, setPeople, currentPerson, setCurrentPerson}) => {
-    const {errand, date, time, location, address, commute, am_pm} = errands
+    const {errand, date, time, am_pm, location, address} = errands
     const [editEarrandFormFlag, setEditFormFlag] = useState(false);
     const params = useParams()
 
@@ -92,7 +92,6 @@ const PersonErrands = ({errands, people, setPeople, currentPerson, setCurrentPer
             <center><h3>Time: {time} {am_pm}</h3></center>
             <center><h3>Location: {location}</h3></center>
             <center><h3>Address: {address}</h3></center>
-            <center><h3>Commute: {commute}</h3></center>
 
             <center>
             <span><button className="edit-errand-button" onClick={() => setEditFormFlag((editErrand) => !editErrand)}>✏️</button></span>

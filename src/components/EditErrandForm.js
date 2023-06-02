@@ -2,16 +2,15 @@ import React, { useState } from "react";
 
 const EditErrandForm = ({editErrand, errands, currentPerson}) => {
 
-    const {errand, date, time, location, address, commute, am_pm} = errands
+    const {errand, date, time, am_pm, location, address} = errands
 
     const [errandData, setErrandData] = useState({
             errand: errand,
             date: date,
             time: time,
+            am_pm: am_pm,
             location: location,
             address: address,
-            commute: commute,
-            am_pm: am_pm
         })
 
 
@@ -111,16 +110,6 @@ const EditErrandForm = ({editErrand, errands, currentPerson}) => {
         value={errandData.address}
         />
         </label>
-
-
-        {/* <input
-        className="edit-errand-input"
-        type="text"
-        name="commute"
-        placeholder="Commute..."
-        onChange={handleChange}
-        value={errandData.commute}
-        /> */}
 
         <div>
             <center>

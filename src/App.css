@@ -37,6 +37,26 @@
   }
 }
 
+.home-div{
+  background-color: rgb(255, 255, 255);
+  border: rgb(240, 195, 71) solid 4px;
+  height: 400px;
+
+}
+
+.home-logo{
+  margin-left: 2%;
+  width: 100%;
+  background-color: black;
+  color: white;
+  font-weight: bolder;
+  font-size: xx-large;
+  border-style: outset;
+  border-color: white;
+  box-shadow: 10px 5px 5px  rgb(240, 195, 71);
+
+}
+
 .join-div{
   background-color: black;
   height: 51px;
@@ -152,7 +172,8 @@
 }
 
 .edit-errand-button{
-  background-color: black;
+  background-color: white;
+  border: white solid 1px;
   font-size: x-large;
   margin-right: 2%;
   margin-left: 2.5%;

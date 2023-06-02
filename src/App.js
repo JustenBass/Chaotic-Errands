@@ -6,16 +6,15 @@ import HomePage from './container/HomePage';
 import People from './container/People';
 import Person from './container/Person';
 
-
 const App = () => {
-  const [people, setPeople] = useState([])
+  const [people, setPeople] = useState([]);
   console.log("people", people)
 
   useEffect(() => {
     fetch('http://localhost:9292/people')
     .then((r) => r.json())
     .then((data) => setPeople(data))
-  }, [])
+  }, []);
 
   return (
     <div className='app-div'>
@@ -29,6 +28,6 @@ const App = () => {
       </Router>
     </div>
   );
-}
+};
 
 export default App;

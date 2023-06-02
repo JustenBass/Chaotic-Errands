@@ -7,10 +7,9 @@ const AddErrandForm = ({currentPerson, addErrand}) => {
         errand: "",
         date: "",
         time: "",
-        daynight: "",
         location: "",
         address: "",
-        commute:""
+        am_pm: "",
 })
 
     const handleErrandChange = (e) => {
@@ -92,19 +91,6 @@ const AddErrandForm = ({currentPerson, addErrand}) => {
             onChange={handleErrandChange}
             value={errandData.address}
             />
-
-            {/* <input
-            className="add-input"
-            type="text"
-            name="commute"
-            placeholder="Commute..."
-            onChange={handleErrandChange}
-            value={errandData.commute}
-            /> */}
-
-
-
-
 
             <input className="add-errand-button" type="submit"/>
             </center>
