@@ -40,7 +40,8 @@ const EditErrandForm = ({editErrand, errands, currentPerson}) => {
 
     return(
         <form onSubmit={handleSubmit}>
-
+        <label className="edit-errand-label">
+            Errand:
         <input
         className="edit-errand-input"
         type="text"
@@ -49,7 +50,10 @@ const EditErrandForm = ({editErrand, errands, currentPerson}) => {
         onChange={handleChange}
         value={errandData.errand}
         />
+        </label>
 
+        <label className="edit-errand-label">
+            Date:
         <input
         className="edit-errand-input"
         type="text"
@@ -58,7 +62,10 @@ const EditErrandForm = ({editErrand, errands, currentPerson}) => {
         onChange={handleChange}
         value={errandData.date}
         />
+        </label>
 
+        <label className="edit-errand-label">
+            Time:
         <input
         className="edit-errand-input"
         type="text"
@@ -67,7 +74,10 @@ const EditErrandForm = ({editErrand, errands, currentPerson}) => {
         onChange={handleChange}
         value={errandData.time}
         />
+        </label>
 
+        <label className="edit-errand-label">
+            am/pm
         <input
         className="edit-errand-input"
         type="text"
@@ -76,7 +86,10 @@ const EditErrandForm = ({editErrand, errands, currentPerson}) => {
         onChange={handleChange}
         value={errandData.am_pm}
         />
+        </label>
 
+        <label className="edit-errand-label">
+            Location:
         <input
         className="edit-errand-input"
         type="text"
@@ -85,7 +98,10 @@ const EditErrandForm = ({editErrand, errands, currentPerson}) => {
         onChange={handleChange}
         value={errandData.location}
         />
+        </label>
 
+        <label className="edit-errand-label">
+            Address:
         <input
         className="edit-errand-input"
         type="text"
@@ -94,6 +110,8 @@ const EditErrandForm = ({editErrand, errands, currentPerson}) => {
         onChange={handleChange}
         value={errandData.address}
         />
+        </label>
+
 
         {/* <input
         className="edit-errand-input"
@@ -104,7 +122,11 @@ const EditErrandForm = ({editErrand, errands, currentPerson}) => {
         value={errandData.commute}
         /> */}
 
-        <div><input type="submit" value="Save"/></div>
+        <div>
+            <center>
+            <button className="edit-errand-save-button" type="submit">Save</button>
+            </center>
+            </div>
     </form>
     )
 }

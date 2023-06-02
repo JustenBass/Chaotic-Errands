@@ -158,6 +158,10 @@
   margin-left: 2.5%;
 }
 
+.edit-errand-label{
+  font-weight: bold;
+}
+
 .edit-errand-form{
   background-color: black;
   height: 44px;
@@ -165,12 +169,20 @@
 
 .edit-errand-input{
   margin-left: 1%;
-  width: 75%;
+  width: 95%;
   height: 16px;
   font-weight: bold;
   background-color: white;
   color: black;
-  border: black solid 1px;
+  border: black solid 1.75px;
+}
+
+.edit-errand-save-button{
+  margin-left: 1%;
+  width: 96%;
+  background-color: black;
+  color: white;
+  font-weight: bold;
 }
 
 
