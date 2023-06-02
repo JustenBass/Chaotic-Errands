@@ -42,6 +42,7 @@ const EditErrandForm = ({editErrand, errands, currentPerson}) => {
         <form onSubmit={handleSubmit}>
 
         <input
+        className="edit-errand-input"
         type="text"
         name="errand"
         placeholder="Errand..."
@@ -50,6 +51,7 @@ const EditErrandForm = ({editErrand, errands, currentPerson}) => {
         />
 
         <input
+        className="edit-errand-input"
         type="text"
         name="date"
         placeholder="MM/DD/YYYY"
@@ -58,6 +60,7 @@ const EditErrandForm = ({editErrand, errands, currentPerson}) => {
         />
 
         <input
+        className="edit-errand-input"
         type="text"
         name="time"
         placeholder="Time..."
@@ -66,6 +69,7 @@ const EditErrandForm = ({editErrand, errands, currentPerson}) => {
         />
 
         <input
+        className="edit-errand-input"
         type="text"
         name="am_pm"
         placeholder="a.m/p.m..."
@@ -74,6 +78,7 @@ const EditErrandForm = ({editErrand, errands, currentPerson}) => {
         />
 
         <input
+        className="edit-errand-input"
         type="text"
         name="location"
         placeholder="Location..."
@@ -82,6 +87,7 @@ const EditErrandForm = ({editErrand, errands, currentPerson}) => {
         />
 
         <input
+        className="edit-errand-input"
         type="text"
         name="address"
         placeholder="Address..."
@@ -89,15 +95,16 @@ const EditErrandForm = ({editErrand, errands, currentPerson}) => {
         value={errandData.address}
         />
 
-        <input
+        {/* <input
+        className="edit-errand-input"
         type="text"
         name="commute"
         placeholder="Commute..."
         onChange={handleChange}
         value={errandData.commute}
-        />
+        /> */}
 
-        <input type="submit" value="Save"/>
+        <div><input type="submit" value="Save"/></div>
     </form>
     )
 }

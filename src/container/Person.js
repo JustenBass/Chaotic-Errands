@@ -67,11 +67,11 @@ const Person = ({people, setPeople}) => {
     return(
         <>
         <div className="welcome-div">
-            <h1>Welcome Back: {name}!</h1>
-            <hr className="welcome-title"/>
-            <h3>Location: {location}</h3>
-            <h3>Age: {age}</h3>
-            <h3>Member Since: {account_created}</h3>
+            <center><h1>Welcome Back {name}!</h1></center>
+            <center><hr className="welcome-title"/></center>
+            <center><h3>Location: {location}</h3></center>
+            <center><h3>Age: {age}</h3></center>
+            <center><h3>Member Since: {account_created}</h3></center>
             <br />
 
             <center><button className="add-errand-button" onClick={() => setErrandFormFlag((errand) => !errand)}>Add New Errands!</button></center>
