@@ -10,6 +10,7 @@ const Navigation = () => {
         background: "black",
         textDecoration: "none",
         color: "white",
+        fontweight: "bold"
     }
 
     return(
@@ -18,9 +19,6 @@ const Navigation = () => {
         to="/"
         exact
         style={linkStyling}
-        activestyle={{
-            background: 'pink'
-        }}
         >
             Home
         </NavLink>
@@ -29,14 +27,11 @@ const Navigation = () => {
         to="/people"
         exact
         style={linkStyling}
-        activestyle={{
-            background: 'pink'
-        }}
         >
             People
         </NavLink>
     </div>
-    )
-}
+    );
+};
 
 export default Navigation

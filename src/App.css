@@ -37,6 +37,19 @@
   }
 }
 
+.add-people-form{
+  background-color: black;
+  height: 51px;
+}
+
+.add-people-input{
+  height: 45px;
+  font-weight: bold;
+  background-color: black;
+  color: white;
+  border: black solid 1px;
+}
+
 .add-form{
   background-color: black;
   height: 51px;

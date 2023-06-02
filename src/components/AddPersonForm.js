@@ -26,12 +26,12 @@ function handleChange(event){
     }
 
     return(
-        <div className="add-form">
+        <div className="add-people-form">
             <form onSubmit={handleSubmit}>
 
             <center>
             <input
-            className="add-input"
+            className="add-people-input"
             type="text"
             name="name"
             placeholder="Type name..."
@@ -40,7 +40,7 @@ function handleChange(event){
             />
 
             <input
-            className="add-input"
+            className="add-people-input"
             type="text"
             name="age"
             placeholder="Type age..."
@@ -49,7 +49,7 @@ function handleChange(event){
             />
 
             <input
-            className="add-input"
+            className="add-people-input"
             type="text"
             name="location"
             placeholder="Type location..."
@@ -58,7 +58,7 @@ function handleChange(event){
             />
 
             <input
-            className="add-input"
+            className="add-people-input"
             type="text"
             name="account_created"
             placeholder="Type MM/DD/YY"
