@@ -81,12 +81,8 @@ const Person = ({people, setPeople}) => {
 
         {errandFormFlag ?
         <AddErrandForm
-        currentPerson = {currentPerson}
+        currentPerson={currentPerson}
         addErrand={addErrand}
-        setCurrentPerson = {setCurrentPerson}
-        people={people}
-        setPeople={setPeople}
-        setErrandFormFlag={setErrandFormFlag}
         /> : null}
     </div>
 
