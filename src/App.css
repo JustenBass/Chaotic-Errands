@@ -37,6 +37,20 @@
   }
 }
 
+.join-div{
+  background-color: black;
+  height: 51px;
+}
+
+.join-button{
+  width: 85%;
+  height: 49px;
+  font-size: xx-large;
+  font-weight: bold;
+  color: white;
+  background-color: black;
+  border: black;
+}
 .add-people-form{
   background-color: black;
   height: 51px;
@@ -67,6 +81,7 @@
   background-color: black;
   border: black;
   color: white;
+  font-size:larger;
   font-weight: bold;
 }
 .link-div{
@@ -127,8 +142,10 @@
 }
 
 .edit-errand-button{
-  background-color: white;
+  background-color: black;
   font-size: x-large;
+  margin-right: 2%;
+  margin-left: 2.5%;
 
 }
 
